@@ -1,1 +1,48 @@
-Next URL
+<html>
+    <head>
+        <title>Linka Pay</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <script src="/js/jquery.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#void-button').click(function() {
+                    id = $('#partner_order_id').val();
+
+                    console.log('partner_order_id : {}', id);
+                    $.ajax({
+                        url:  '/void/' + id,
+                        type: 'POST',
+                        success: function(result) {
+                            console.log('result: {}', result);
+                            if ( result.code == '0000') {
+                                location.href = '/linka';
+                            } else {
+                                alert(result.error.errorinfo.message);
+                            }
+                        }
+                    })
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h3>Linka pay</h3>
+            <div class="form-group">
+                <lable class="col-sm-2 control-label">Partner Order ID</lable>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="partner_order_id" placeholder="partner_order_id" name="partner_order_id" value="<%= partner_order_id %>">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" id="void-button" class="btn btn-secondary">Secondary</button>
+                    <a class="btn btn-primary" href="/linka" role="button">LINKA</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
