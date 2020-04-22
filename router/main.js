@@ -33,7 +33,7 @@ module.exports = function(app)
                 token: token,
                 partner_id: 'KRLW2003201605',
                 partner_order_id: orderNo,
-                base_url: 'http://0423b469.ngrok.io'
+                base_url: 'http://cb0d4ebb.ngrok.io'
             });
         });
 
