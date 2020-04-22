@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>Linka Pay</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h3>Linka pay</h3>
+            <form class="form-horizontal" method="POST" enctype="application/x-www-form-urlencoded" action="<%= action_url%>">
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">Access token</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="token" placeholder="token" name="token" VALUE="<%= token %>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">PG 고객사 고유 아이디</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="partner_id" placeholder="partner_id" name="partner_id" VALUE="<%= partner_id %>">
+                    </div>
+                </div>
+                <!-- seller_wallet_address -->
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">P2P거래 여부(Default : N)</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="p2p_yn" placeholder="p2p_yn" name="p2p_yn" VALUE="N">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">PG 고객사의 결제 고유 아이디(주문PK)</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="partner_order_id" placeholder="partner_order_id" name="partner_order_id" VALUE="<%= partner_order_id %>">
+                    </div>
+                </div>
+                <!-- goods_id -->
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">상품명</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="goods_name"" placeholder="goods_name" name="goods_name" VALUE="모바일팝충전" ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">상품 판매가(기축자산 기준 수량)</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="goods_cc_quantity"" placeholder="goods_cc_quantity" name="goods_cc_quantity" VALUE="0.1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">상품 결제에 사용되는 기축자산 종류(9999)</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="goods_coin_idx"" placeholder="goods_coin_idx" name="goods_coin_idx" VALUE="9999">
+                    </div>
+                </div>
+                <!-- goods_img_path, goods_taxation_yn, goods_taxation_rate -->
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">상품 결제에 사용되는 결제/정산 통화(Fiat) 종류</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="currency_unit"" placeholder="currency_unit" name="currency_unit" VALUE="KRW">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">기축자산 1개에 대한 단위금액(결제/정산 통화 기준)</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="currency_price" placeholder="currency_price" name="currency_price" VALUE="10000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">사용자 고유 아이디</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="user_id" placeholder="user_id" name="user_id" VALUE="prettyfly@korea.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">사용자와 연동된 지갑명(LT01)</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="pg_wallet_type"" placeholder="pg_wallet_type" name="pg_wallet_type" VALUE="LT01">
+                    </div>
+                </div>
+                <!-- user_wallet_address, user_wallet_balance -->
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">사용자의 지갑 주소</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="user_wallet_address"" placeholder="user_wallet_address" name="user_wallet_address" VALUE="0x1234567890">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">사용자의 지갑 내 기축자산 보유 수량</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="user_wallet_balance"" placeholder="user_wallet_balance" name="user_wallet_balance" VALUE="9000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">Callback</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="node_url" placeholder="node_url" name="node_url" VALUE="<%= base_url %>/callback">
+                    </div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="next_url" placeholder="next_url" name="next_url" VALUE="<%= base_url %>/next">
+                    </div>
+                    <!-- sign_rul -->
+                </div>
+                <div class="form-group">
+                    <lable class="col-sm-2 control-label">Language</lable>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="language_code" placeholder="language_code" name="language_code" VALUE="ko">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <dov class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Send</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
+                    </dov>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
